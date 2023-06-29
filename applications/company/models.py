@@ -8,3 +8,10 @@ class Company(models.Model):
     group = models.ForeignKey(Main, related_name='companies', on_delete=models.CASCADE)
     subtitle = models.CharField(verbose_name="подзаголовок", max_length=999)
     description = models.TextField()
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        verbose_name = 'Компания'
+        verbose_name_plural = 'Компании'
