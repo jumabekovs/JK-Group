@@ -4,3 +4,4 @@ from django.apps import AppConfig
 class NewsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'applications.news'
+    verbose_name = "посты"
