@@ -10,7 +10,7 @@ class Main(models.Model):
     text = models.TextField(verbose_name='текст', blank=True, null=True)
 
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.title} - {self.description}"
 
     class Meta:
         verbose_name = "Главная страница"

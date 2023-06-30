@@ -22,7 +22,7 @@ class Team(models.Model):
     department = models.CharField(verbose_name="отдел", max_length=556, blank=True, null=True)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
                                      blank=True, null=True)
-    name = models.CharField(verbose_name="имя фамилие", max_length=556)
+    name = models.CharField(verbose_name="ФИО", max_length=556)
     status = models.CharField(verbose_name="должность", max_length=556)
     experience = models.TextField(verbose_name='опыт работы')
 

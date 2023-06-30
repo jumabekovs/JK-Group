@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Career, CareerImages
+from modeltranslation.admin import TranslationAdmin
+from django_summernote.admin import SummernoteModelAdmin
 
 
 class CareerImagesAdmin(admin.TabularInline):
@@ -8,9 +10,10 @@ class CareerImagesAdmin(admin.TabularInline):
     extra = 1
 
 
-class CareerAdmin(admin.ModelAdmin):
+class CareerAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Career
     inlines = [CareerImagesAdmin]
+    summernote_fields = ('title', 'description')
     list_display = ['title']
 
 

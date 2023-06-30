@@ -12,7 +12,7 @@ class History(models.Model):
                                      blank=True, null=True)
 
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.company} - {self.title}"
 
     class Meta:
         verbose_name = "история"
