@@ -13,7 +13,8 @@ class PartnerPage(models.Model):
         return f"{self.sub_title}"
 
     class Meta:
-        verbose_name_plural = "страница партнеры"
+        verbose_name = "страница партнеров"
+        verbose_name_plural = "страница партнеров"
 
 
 class Partner(models.Model):
@@ -24,3 +25,7 @@ class Partner(models.Model):
 
     def __str__(self):
         return f"{self.line} - {self.title}"
+
+    class Meta:
+        verbose_name = "партнер"
+        verbose_name_plural = "партнеры"
