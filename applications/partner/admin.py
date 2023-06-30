@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import PartnerPage, Partner
 
-# Register your models here.
+
+admin.site.register(Partner)
+admin.site.register(PartnerPage)

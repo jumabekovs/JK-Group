@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'applications.news',
     'applications.partner',
     'applications.project',
+    'applications.staff',
+    'applications.career',
+    'applications.vacancy',
 ]
 
 MIDDLEWARE = [

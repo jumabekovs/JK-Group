@@ -1,0 +1,31 @@
+from django.db import models
+
+from applications.line.models import Line
+
+
+class TeamPage(models.Model):
+    main_picture = models.ImageField(verbose_name='главная фотография', upload_to='team_images',
+                                     blank=True, null=True)
+    corporate_structure_picture = models.ImageField(verbose_name='фотография структуры', upload_to='team_images',
+                                                    blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "страница команды"
+
+
+class Team(models.Model):
+    line = models.ForeignKey(Line, related_name='team', on_delete=models.CASCADE, verbose_name='направление',
+                             blank=True, null=True)
+    department = models.CharField(verbose_name="отдел", max_length=556, blank=True, null=True)
+    main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
+                                     blank=True, null=True)
+    name = models.CharField(verbose_name="имя фамилие", max_length=556)
+    status = models.CharField(verbose_name="должность", max_length=556)
+    experience = models.TextField(verbose_name='опыт работы')
+
+    def __str__(self):
+        return f"{self.line} - {self.department} - {self.name}"
+
+    class Meta:
+        verbose_name = 'сотрудник'
+        verbose_name_plural = 'сотрудники'

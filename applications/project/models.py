@@ -6,7 +6,7 @@ class Project(models.Model):
     line = models.ForeignKey(Line, related_name='projects', on_delete=models.CASCADE, verbose_name='направление')
     name = models.CharField(verbose_name='название', max_length=265)
     description = models.TextField(verbose_name='описание')
-    file = models.ImageField(verbose_name='фотография проекта', upload_to='project_images',
+    file = models.ImageField(verbose_name='фотография', upload_to='project_images',
                                      blank=True, null=True)
     year = models.IntegerField(verbose_name='год', blank=True, null=True)
 
