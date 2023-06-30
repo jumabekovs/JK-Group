@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView, RetrieveAPIView
+from .models import Career
+from .serializers import CareerListSerializer, CareerDetailSerializer
 
-# Create your views here.
+
+class CareerListView(ListAPIView):
+    queryset = Career.objects.all()
+    serializer_class = CareerListSerializer
+
+
+class CareerDetailView(RetrieveAPIView):
+    queryset = Career.objects.all()
+    serializer_class = CareerDetailSerializer
+

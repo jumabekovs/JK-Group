@@ -21,7 +21,7 @@ class Mission(models.Model):
 
 class ExtraFields(models.Model):
     mission = models.ForeignKey(Mission, related_name='extrafields', on_delete=models.CASCADE, verbose_name='направление')
-    sub_title = models.CharField(max_length=999, blank=True, null=True)
+    sub_title = models.CharField(verbose_name="подзаголовок", max_length=999, blank=True, null=True)
     description = models.TextField(verbose_name='описание', blank=True, null=True)
     picture = models.ImageField(verbose_name='фотография миссии', upload_to='mission_images',
                                 blank=True, null=True)

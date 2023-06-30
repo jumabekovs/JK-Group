@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
@@ -39,8 +40,23 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
 ]
 
+urlpatterns += i18n_patterns(
+    path('career/', include('applications.career.urls')),
+    path('company/', include('applications.company.urls')),
+    path('line/', include('applications.line.urls')),
+    path('history/', include('applications.history.urls')),
+    path('main/', include('applications.main.urls')),
+    path('posts/', include('applications.news.urls')),
+    path('partners/', include('applications.partner.urls')),
+    path('projects/', include('applications.project.urls')),
+    path('team/', include('applications.staff.urls')),
+    path('vacancies/', include('applications.vacancy.urls')),
+    path('contacts/', include('applications.mail.urls')),
+)
+
+
 admin.site.site_header = 'JK Group'
-admin.site.index_title = 'Администрация'
+admin.site.index_title = 'Администрирование'
 admin.site.site_title = 'JK Group Admin'
 
 if settings.DEBUG:

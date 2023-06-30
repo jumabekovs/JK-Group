@@ -10,7 +10,7 @@ class Career(models.Model):
     description = models.TextField(verbose_name='описание')
 
     def __str__(self):
-        return f"{self.line} - {self.title}"
+        return f"{self.title}"
 
     class Meta:
         verbose_name = 'карьера'

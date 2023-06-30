@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView, RetrieveAPIView
+from .models import Line
+from .serializers import LineDetailSerializer, LineListSerializer
 
-# Create your views here.
+
+class LineListView(ListAPIView):
+    queryset = Line.objects.all()
+    serializer_class = LineListSerializer
+
+
+class LineDetailView(RetrieveAPIView):
+    queryset = Line.objects.all()
+    serializer_class = LineDetailSerializer

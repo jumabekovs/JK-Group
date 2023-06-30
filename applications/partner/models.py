@@ -1,6 +1,6 @@
 from django.db import models
 
-from applications.line.models import Line
+from applications.company.models import Company
 
 
 class PartnerPage(models.Model):
@@ -18,13 +18,14 @@ class PartnerPage(models.Model):
 
 
 class Partner(models.Model):
-    line = models.ForeignKey(Line, related_name='partners', on_delete=models.CASCADE, verbose_name='направление')
+    company = models.ForeignKey(Company, related_name='partners', on_delete=models.CASCADE, verbose_name='компания',
+                                blank=True, null=True)
     title = models.CharField(verbose_name="заголовок", max_length=556)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
                                      blank=True, null=True)
 
     def __str__(self):
-        return f"{self.line} - {self.title}"
+        return f"{self.company} - {self.title}"
 
     class Meta:
         verbose_name = "партнер"

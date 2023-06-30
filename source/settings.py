@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'applications.staff',
     'applications.career',
     'applications.vacancy',
+    'applications.mail',
 ]
 
 MIDDLEWARE = [
@@ -177,3 +178,10 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'ICvZYXzdt8QBlOw8MYUUJXT0JF4',
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)

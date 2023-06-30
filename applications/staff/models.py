@@ -1,6 +1,6 @@
 from django.db import models
 
-from applications.line.models import Line
+from applications.company.models import Company
 
 
 class TeamPage(models.Model):
@@ -9,12 +9,15 @@ class TeamPage(models.Model):
     corporate_structure_picture = models.ImageField(verbose_name='фотография структуры', upload_to='team_images',
                                                     blank=True, null=True)
 
+    def __str__(self):
+        return "ФОТО КОМАНДЫ и ФОТО СТРУКТУРЫ КОМПАНИИ"
+
     class Meta:
         verbose_name_plural = "страница команды"
 
 
 class Team(models.Model):
-    line = models.ForeignKey(Line, related_name='team', on_delete=models.CASCADE, verbose_name='направление',
+    company = models.ForeignKey(Company, related_name='teams', on_delete=models.CASCADE, verbose_name='компания',
                              blank=True, null=True)
     department = models.CharField(verbose_name="отдел", max_length=556, blank=True, null=True)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
@@ -24,7 +27,7 @@ class Team(models.Model):
     experience = models.TextField(verbose_name='опыт работы')
 
     def __str__(self):
-        return f"{self.line} - {self.department} - {self.name}"
+        return f"{self.company} - {self.department} - {self.name}"
 
     class Meta:
         verbose_name = 'сотрудник'

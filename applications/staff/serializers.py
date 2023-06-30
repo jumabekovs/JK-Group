@@ -7,6 +7,11 @@ class TeamSerializer(serializers.ModelSerializer):
         model = Team
         fields = "__all__"
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['company'] = str(instance.company)
+        return representation
+
 
 class TeamPageSerializer(serializers.ModelSerializer):
     class Meta:
