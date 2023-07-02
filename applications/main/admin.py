@@ -9,7 +9,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 class MainAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Main
-    list_display = ['title', 'subtitle']
+    list_display = ['subtitle']
     summernote_fields = ('subtitle', 'description', 'text')
 
 
