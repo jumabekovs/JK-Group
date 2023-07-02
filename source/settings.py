@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-m470^%j%-p1h=10q3whcd0^4hwy_jpyg7tp0z3rei#7q$+r%xj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -174,10 +174,8 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000','https://localhost:3000', "https://jk-group-production.up.railway.app"]
-
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000','https://localhost:3000', "https://jk-group-production.up.railway.app"]
-
+CORS_ALLOW_ALL_ORIGINS = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dn17ltczr',
