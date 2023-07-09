@@ -17,3 +17,16 @@ class Vacancy(models.Model):
     class Meta:
         verbose_name = 'вакансия'
         verbose_name_plural = 'вакансии'
+
+
+class CV(models.Model):
+    vacancy = models.ForeignKey(Vacancy, related_name='cvs', on_delete=models.CASCADE, verbose_name='вакансия',
+                                blank=True, null=True)
+    cv = models.FileField(verbose_name="Резюме", upload_to='cv_files')
+
+    def __str__(self):
+        return f"{self.vacancy } - {self.cv}"
+
+    class Meta:
+        verbose_name = 'Резюме'
+        verbose_name_plural = 'Резюме'
