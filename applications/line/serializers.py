@@ -6,12 +6,13 @@ from ..project.serializers import ProjectListSerializer
 class LineListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Line
-        fields = "__all__"
+        exclude = ('sub_title', 'sub_title_ru', 'sub_title_ky', 'sub_title_en')
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['company'] = str(instance.company)
-        representation['extra_fields'] = LineImageSerializer(instance.extrafields.all(), many=True).data
+        representation['extra_fields'] = LineImageSerializer(instance.extrafields.all(), many=True).data + \
+                                         [instance.sub_title_ru, instance.sub_title_ky,instance.sub_title_en]
         return representation
 
 
