@@ -20,5 +20,5 @@ class Post(models.Model):
         return f"{self.category} - {self.title}"
 
     class Meta:
-        verbose_name = "пост"
-        verbose_name_plural = "посты"
+        verbose_name = "Новости"
+        verbose_name_plural = "Новости"

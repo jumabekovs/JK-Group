@@ -17,6 +17,8 @@ class CompanyListSerializer(serializers.ModelSerializer):
         representation['mission'] = MissionSerializer(instance.missions.all(), many=True).data
         representation['partners'] = PartnerSerializer(instance.partners.all(), many=True).data
         representation['vacancies'] = VacancyListSerializer(instance.vacancies.all(), many=True).data
+        representation['images'] = CompanyImageSerializer(instance.company_images.all(), many=True).data + \
+                                   [instance.subtitle, instance.description]
         return representation
 
 
