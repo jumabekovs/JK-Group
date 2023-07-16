@@ -1,3 +1,4 @@
+from rest_framework.filters import SearchFilter
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .models import Project
 from .serializers import ProjectListSerializer, ProjectDetailSerializer
@@ -9,9 +10,10 @@ from rest_framework.pagination import PageNumberPagination
 class ProjectListView(ListAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectListSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = ProjectFilter
     pagination_class = PageNumberPagination
+    search_fields = ['name', 'name_ru', 'name_ky', 'name_en']
 
 
 class ProjectDetailView(RetrieveAPIView):

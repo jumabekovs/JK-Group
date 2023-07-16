@@ -25,7 +25,7 @@ class Partner(models.Model):
                                      blank=True, null=True)
 
     def __str__(self):
-        return f"{self.company} - {self.title}"
+        return f"{self.company.name} - {self.title}"
 
     class Meta:
         verbose_name = "партнер"

@@ -1,3 +1,4 @@
+from rest_framework.filters import SearchFilter
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .models import Partner, PartnerPage
 from .serializers import PartnerPageSerializer, PartnerSerializer
@@ -9,9 +10,10 @@ from .filters import PartnerFilter
 class PartnerListView(ListAPIView):
     queryset = Partner.objects.all()
     serializer_class = PartnerSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = PartnerFilter
     pagination_class = PageNumberPagination
+    search_fields = ['title', 'title_ru', 'title_ky', 'title_en']
 
     def list(self, request, *args, **kwargs):
         response = super().list(request, *args, **kwargs)

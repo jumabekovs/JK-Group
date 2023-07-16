@@ -8,6 +8,7 @@ from .models import Project
 class ProjectAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Project
     list_display = ['name', 'year', ]
+    list_display_links = ['name', 'year', ]
     summernote_fields = ('name', 'description')
 
 
