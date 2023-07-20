@@ -27,6 +27,17 @@ class MainSerializer(serializers.ModelSerializer):
         representation['lines'] = LineListSerializer(Line.objects.all(), many=True).data
         return representation
 
+    def to_native(self, obj):
+        if isinstance(obj, Post):
+            serializer = PostDetailSerializer(obj)
+        elif isinstance(obj, Project):
+            serializer = ProjectListSerializer(obj)
+        elif isinstance(obj, Partner):
+            serializer = PartnerSerializer(obj)
+        else:
+            raise Exception("Not found in any instance!")
+        return serializer.data
+
 
 # class GlobalSearchSerializer(serializers.Serializer):
 #     def to_native(self, obj):

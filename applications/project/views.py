@@ -13,7 +13,7 @@ class ProjectListView(ListAPIView):
     filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = ProjectFilter
     pagination_class = PageNumberPagination
-    search_fields = ['name', 'name_ru', 'name_ky', 'name_en']
+    search_fields = ['title', 'title_ru', 'title_ky', 'title_en']
 
 
 class ProjectDetailView(RetrieveAPIView):
