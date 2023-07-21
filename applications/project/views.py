@@ -19,4 +19,3 @@ class ProjectListView(ListAPIView):
 class ProjectDetailView(RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectDetailSerializer
-

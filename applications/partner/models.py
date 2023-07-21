@@ -18,11 +18,11 @@ class PartnerPage(models.Model):
 
 
 class Partner(models.Model):
-    company = models.ForeignKey(Company, related_name='partners', on_delete=models.CASCADE, verbose_name='компания',
-                                blank=True, null=True)
+    company = models.ForeignKey(Company, related_name='partners', on_delete=models.CASCADE, verbose_name='компания')
     title = models.CharField(verbose_name="заголовок", max_length=556)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
                                      blank=True, null=True)
+    description = models.TextField(verbose_name='описание', blank=True, null=True)
 
     def __str__(self):
         return f"{self.company.name} - {self.title}"

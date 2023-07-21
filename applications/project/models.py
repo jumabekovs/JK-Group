@@ -16,3 +16,13 @@ class Project(models.Model):
     class Meta:
         verbose_name = 'проект'
         verbose_name_plural = 'проекты'
+
+
+class ExtraFields(models.Model):
+    line = models.ForeignKey(Project, related_name='extrafields', on_delete=models.CASCADE, verbose_name='проект')
+    picture = models.ImageField(verbose_name='фотография проекта', upload_to='line_images',
+                                blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'экстра поле'
+        verbose_name_plural = 'экстра поля'

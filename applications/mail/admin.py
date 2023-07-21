@@ -8,4 +8,4 @@ class MailAdmin(admin.ModelAdmin):
     list_filter = ['email']
 
 
-admin.site.register(Mail, MailAdmin)
+# admin.site.register(Mail, MailAdmin)
