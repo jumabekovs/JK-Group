@@ -12,6 +12,7 @@ from ..partner.models import Partner
 from ..partner.serializers import PartnerSerializer
 from ..project.models import Project
 from ..project.serializers import ProjectListSerializer
+from ..staff.models import Team
 
 
 class MainListView(ListAPIView):
@@ -49,16 +50,14 @@ class MainListView(ListAPIView):
                                              Q(title_ky__icontains=query) | Q(title_en__icontains=query))
 
         queryset = list(model1_results) + list(model2_results) + list(model3_results) + \
-                   list(model4_results) 
+                   list(model4_results)
         return queryset
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer_class = self.get_serializer_class()
-        print(serializer_class)
-
         if not queryset or not serializer_class:
             return Response([])
-
         serializer = serializer_class(queryset, many=True)
+
         return Response(serializer.data)

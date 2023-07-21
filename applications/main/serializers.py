@@ -2,6 +2,8 @@ from rest_framework import serializers
 from .models import Main
 from ..line.models import Line
 from ..line.serializers import LineListSerializer
+from ..project.models import Project
+from ..staff.models import Team
 
 
 class MainSerializer(serializers.ModelSerializer):
@@ -19,4 +21,6 @@ class MainSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['lines'] = LineListSerializer(Line.objects.all(), many=True).data
+        representation['statistics'] = {'Projects': Project.objects.all().count(), 'Lines of Bussiness':
+            Line.objects.all().count(), 'Team members': Team.objects.all().count()}
         return representation
