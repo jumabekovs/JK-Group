@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Line, ExtraFields
 from ..project.serializers import ProjectListSerializer
+from ..staff.serializers import TeamSerializer
 
 
 class LineListSerializer(serializers.ModelSerializer):
@@ -13,6 +14,7 @@ class LineListSerializer(serializers.ModelSerializer):
         representation['company'] = str(instance.company)
         representation['extra_fields'] = LineImageSerializer(instance.extrafields.all(), many=True).data + \
                                          [instance.sub_title_ru, instance.sub_title_ky,instance.sub_title_en]
+        representation['team'] = TeamSerializer(instance.lines.all(), many=True).data
         return representation
 
 

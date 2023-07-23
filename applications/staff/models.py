@@ -1,6 +1,7 @@
 from django.db import models
 
 from applications.company.models import Company
+from applications.line.models import Line
 
 
 class TeamPage(models.Model):
@@ -18,6 +19,8 @@ class TeamPage(models.Model):
 
 class Team(models.Model):
     company = models.ForeignKey(Company, related_name='teams', on_delete=models.CASCADE, verbose_name='компания',
+                             blank=True, null=True)
+    line = models.ForeignKey(Line, related_name='lines', on_delete=models.CASCADE, verbose_name='напрвление',
                              blank=True, null=True)
     department = models.CharField(verbose_name="отдел", max_length=556, blank=True, null=True)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',

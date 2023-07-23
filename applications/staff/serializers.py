@@ -9,7 +9,7 @@ class TeamSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['company'] = str(instance.company)
+        representation['line'] = str(instance.line)
         return representation
 
 

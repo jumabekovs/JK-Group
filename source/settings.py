@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'applications.career',
     'applications.vacancy',
     'applications.mail',
+    'applications.about_us'
 ]
 
 MIDDLEWARE = [

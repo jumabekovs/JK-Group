@@ -2,12 +2,6 @@ from rest_framework import serializers
 from .models import History, ExtraFields
 
 
-class HistoryListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = History
-        fields = "__all__"
-
-
 class HistoryImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExtraFields
@@ -22,6 +16,18 @@ class HistoryImageSerializer(serializers.ModelSerializer):
         else:
             url = ""
         return url
+
+
+class HistoryListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = History
+        fields = "__all__"
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['extra'] = HistoryImageSerializer(instance.extrafields.all(), many=True).data
+        representation['company'] = str(instance.company)
+        return representation
 
 
 class HistoryDetailSerializer(serializers.ModelSerializer):
