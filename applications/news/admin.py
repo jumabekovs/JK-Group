@@ -8,7 +8,7 @@ from .models import Post
 class PostAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Post
     list_display = ['title', 'content']
-    summernote_fields = ('title', 'content')
+    summernote_fields = ('content',)
 
 
 admin.site.register(Post, PostAdmin)

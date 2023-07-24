@@ -17,7 +17,7 @@ class HistoryAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = History
     inlines = [ExtraFieldsAdmin]
     list_display = ['company', 'title', 'sub_title']
-    summernote_fields = ('title', 'sub_title', 'description')
+    summernote_fields = ('sub_title', 'description')
 
 
 admin.site.register(History, HistoryAdmin)

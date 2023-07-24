@@ -16,7 +16,7 @@ class ProjectAdmin(SummernoteModelAdmin, TranslationAdmin):
     inlines = [ExtraFieldsAdmin]
     list_display = ['title', 'year', ]
     list_display_links = ['title', 'year', ]
-    summernote_fields = ('title', 'description')
+    summernote_fields = ('description',)
 
 
-admin.site.register(Project,ProjectAdmin)
+admin.site.register(Project, ProjectAdmin)

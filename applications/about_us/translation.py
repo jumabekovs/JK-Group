@@ -4,4 +4,4 @@ from .models import AboutUs
 
 @register(AboutUs)
 class MainTranslationOptions(TranslationOptions):
-    fields = ('title', 'subtitle', 'description',)
+    fields = ('subtitle', 'description',)

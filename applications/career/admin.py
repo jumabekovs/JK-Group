@@ -13,7 +13,7 @@ class CareerImagesAdmin(admin.TabularInline):
 class CareerAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Career
     inlines = [CareerImagesAdmin]
-    summernote_fields = ('title', 'description')
+    summernote_fields = ('description')
     list_display = ['title']
 
 

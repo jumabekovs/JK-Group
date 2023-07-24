@@ -17,7 +17,7 @@ class MissionAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Mission
     inlines = [ExtraFieldsAdmin]
     list_display = ['company', 'title', 'sub_title']
-    summernote_fields = ('title', 'sub_title', 'description')
+    summernote_fields = ('sub_title', 'description')
 
 
 admin.site.register(Mission, MissionAdmin)

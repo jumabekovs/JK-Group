@@ -5,10 +5,9 @@ from modeltranslation.admin import TranslationAdmin
 from .models import PartnerPage, Partner
 
 
-class PartnerAdmin(SummernoteModelAdmin, TranslationAdmin):
+class PartnerAdmin(TranslationAdmin):
     model = Partner
-    list_display = ['title',]
-    summernote_fields = ('title', )
+    list_display = ['title', ]
 
 
 class PartnerPageAdmin(SummernoteModelAdmin, TranslationAdmin):

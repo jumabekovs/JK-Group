@@ -8,7 +8,7 @@ from .models import Vacancy, CV
 class VacancyAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Vacancy
     list_display = ('company', 'title',)
-    summernote_fields = ('title', 'description',)
+    summernote_fields = ('description',)
 
 
 admin.site.register(CV)
