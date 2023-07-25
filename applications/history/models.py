@@ -5,7 +5,7 @@ from applications.company.models import Company
 
 class History(models.Model):
     company = models.ForeignKey(Company, verbose_name='компания', related_name='history', on_delete=models.DO_NOTHING,
-                                null=True)
+                                null=True, blank=True)
     title = models.CharField(verbose_name="заголовок", max_length=556)
     sub_title = models.CharField(verbose_name="подзаголовок", max_length=996, blank=True, null=True)
     description = models.TextField(verbose_name='описание')
@@ -13,7 +13,7 @@ class History(models.Model):
                                      blank=True, null=True)
 
     def __str__(self):
-        return f"{self.company} - {self.title}"
+        return f"{self.title}"
 
     class Meta:
         verbose_name = "история"
