@@ -25,7 +25,7 @@ class CV(models.Model):
     cv = models.FileField(verbose_name="Резюме", upload_to='cv_files')
 
     def __str__(self):
-        return f"{self.vacancy } - {self.cv}"
+        return f"{self.cv}"
 
     class Meta:
         verbose_name = 'Резюме'

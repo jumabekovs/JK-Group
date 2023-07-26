@@ -22,11 +22,11 @@ class Team(models.Model):
                              blank=True, null=True)
     line = models.ForeignKey(Line, related_name='lines', on_delete=models.CASCADE, verbose_name='напрвление',
                              blank=True, null=True)
-    department = models.CharField(verbose_name="отдел", max_length=556, blank=True, null=True)
+    department = models.CharField(verbose_name="отдел", max_length=255, blank=True, null=True)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
                                      blank=True, null=True)
-    name = models.CharField(verbose_name="ФИО", max_length=556)
-    status = models.CharField(verbose_name="должность", max_length=556)
+    name = models.CharField(verbose_name="ФИО", max_length=255)
+    status = models.CharField(verbose_name="должность", max_length=255)
     experience = models.TextField(verbose_name='опыт работы')
 
     def __str__(self):
