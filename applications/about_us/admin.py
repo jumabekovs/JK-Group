@@ -7,7 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class AboutUsAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = AboutUs
     list_display = ['title', 'subtitle']
-    summernote_fields = ('title', 'subtitle', 'description', )
+    summernote_fields = ('description', )
 
 
 admin.site.register(AboutUs, AboutUsAdmin)
