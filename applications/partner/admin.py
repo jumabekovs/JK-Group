@@ -12,7 +12,7 @@ class PartnerAdmin(TranslationAdmin):
 
 class PartnerPageAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = PartnerPage
-    list_display = ['description', 'sub_title']
+    list_display = ['sub_title',]
     summernote_fields = ('description',)
 
 
