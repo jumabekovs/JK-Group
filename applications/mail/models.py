@@ -2,8 +2,11 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from applications.line.models import Line
+
 
 class Mail(models.Model):
+    line = models.ForeignKey(Line, verbose_name='направление', related_name='mail_line', on_delete=models.DO_NOTHING, null=True)
     name = models.CharField(verbose_name=_('Имя'), max_length=256)
     email = models.EmailField(verbose_name=_('Эл.почта'), max_length=256)
     phone_regex = RegexValidator(regex=r'^\+?996?\d{9}$',

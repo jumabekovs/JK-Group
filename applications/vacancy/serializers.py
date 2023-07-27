@@ -40,7 +40,6 @@ class CVSerializer(serializers.ModelSerializer):
                   message=f'Отправили резюме:\t https://res.cloudinary.com/dn17ltczr/image/upload/v1/{message}\t '
                           f'на вакансию\t{vacancy}',
                   from_email=settings.EMAIL_HOST_USER,
-                  recipient_list=["baiyshbeksultanov1@gmail.com"],
+                  recipient_list=["baiyshbeksultanov1@gmail.com",],
                   fail_silently=False)
-        print(message)
         return message
