@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 from source import settings
 from .models import Vacancy, CV
+from django.core.mail import EmailMessage
 
 
 class VacancyListSerializer(serializers.ModelSerializer):

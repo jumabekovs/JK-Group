@@ -1,4 +1,13 @@
+import io
+
+from PyPDF2 import PdfReader
+from django.core.mail import EmailMessage
+from rest_framework import status
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from source import settings
 from .models import Vacancy, CV
 from .serializers import VacancyListSerializer, VacancyDetailSerializer, CVSerializer
 from django_filters import rest_framework as filters
