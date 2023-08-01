@@ -17,7 +17,7 @@ class Post(models.Model):
                                  on_delete=models.DO_NOTHING, null=True)
     title = models.CharField(verbose_name='название', max_length=256, blank=True, null=True)
     content = models.TextField(verbose_name='контент', blank=True, null=True)
-    image = models.ImageField(verbose_name='картинка поста', upload_to='post_images', blank=True, null=True)
+    image = models.ImageField(verbose_name='картинка поста', upload_to='post_images', blank=True, null=True, max_length=999)
 
     def __str__(self):
         return f"{self.category} - {self.title}"

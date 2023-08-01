@@ -8,7 +8,7 @@ class Line(models.Model):
     sub_title = models.CharField(max_length=999)
     description = models.TextField(verbose_name='описание')
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
-                                     blank=True, null=True)
+                                     blank=True, null=True, max_length=999)
 
     def __str__(self):
         return f"{self.title}"
@@ -23,9 +23,9 @@ class ExtraFields(models.Model):
     sub_title = models.CharField(verbose_name='подзаголовок', max_length=999, blank=True, null=True)
     description = models.TextField(verbose_name='описание', blank=True, null=True)
     picture = models.ImageField(verbose_name='первая фотография', upload_to='line_images',
-                                blank=True, null=True)
+                                blank=True, null=True, max_length=999)
     second_picture = models.ImageField(verbose_name='вторая фотография', upload_to='line_images',
-                                       blank=True, null=True)
+                                       blank=True, null=True, max_length=999)
 
     def __str__(self):
         return f"{self.sub_title}"

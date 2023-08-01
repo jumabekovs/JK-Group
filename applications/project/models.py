@@ -7,7 +7,7 @@ class Project(models.Model):
     title = models.CharField(verbose_name='название', max_length=265)
     description = models.TextField(verbose_name='описание')
     file = models.ImageField(verbose_name='фотография', upload_to='project_images',
-                                     blank=True, null=True)
+                                     blank=True, null=True, max_length=999)
     year = models.IntegerField(verbose_name='год', blank=True, null=True)
 
     def __str__(self):
@@ -21,7 +21,7 @@ class Project(models.Model):
 class ExtraFields(models.Model):
     line = models.ForeignKey(Project, related_name='extrafields', on_delete=models.CASCADE, verbose_name='проект')
     picture = models.ImageField(verbose_name='фотография проекта', upload_to='line_images',
-                                blank=True, null=True)
+                                blank=True, null=True, max_length=999)
 
     class Meta:
         verbose_name = 'экстра поле'

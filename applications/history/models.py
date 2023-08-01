@@ -10,7 +10,7 @@ class History(models.Model):
     sub_title = models.CharField(verbose_name="подзаголовок", max_length=996, blank=True, null=True)
     description = models.TextField(verbose_name='описание')
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='history_images',
-                                     blank=True, null=True)
+                                     blank=True, null=True, max_length=999)
 
     def __str__(self):
         return f"{self.title}"
@@ -23,7 +23,7 @@ class History(models.Model):
 class ExtraFields(models.Model):
     history = models.ForeignKey(History, related_name='extrafields', on_delete=models.DO_NOTHING, null=True)
     picture = models.ImageField(verbose_name='фотография', upload_to='history_images',
-                                blank=True, null=True)
+                                blank=True, null=True, max_length=999)
 
     def __str__(self):
         return f"{self.history}"

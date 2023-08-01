@@ -9,7 +9,7 @@ class Mission(models.Model):
     sub_title = models.CharField(verbose_name="подзаголовок", max_length=996)
     description = models.TextField(verbose_name='описание')
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
-                                     blank=True, null=True)
+                                     blank=True, null=True, max_length=999)
 
     def __str__(self):
         return f"{self.company} - {self.title}"

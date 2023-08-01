@@ -20,7 +20,7 @@ class Company(models.Model):
 class CompanyImage(models.Model):
     company = models.ForeignKey(Company, related_name='company_images', on_delete=models.CASCADE,
                                 verbose_name='компания')
-    image = models.ImageField(verbose_name='фотография', upload_to='company-images', blank=True, null=True)
+    image = models.ImageField(verbose_name='фотография', upload_to='company-images', blank=True, null=True, max_length=999)
 
     class Meta:
         verbose_name = 'фотография'
