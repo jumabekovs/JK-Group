@@ -24,8 +24,18 @@ class LineImageSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def _get_image_url(self, obj):
-        if obj.image:
+        if obj.picture:
             url = obj.picture.url
+            requests = self.context.get("request")
+            if requests is not None:
+                url = requests.build_absolute_uri(url)
+        else:
+            url = ""
+        return url
+
+    def get_image_url(self, obj):
+        if obj.second_picture:
+            url = obj.second_picture.url
             requests = self.context.get("request")
             if requests is not None:
                 url = requests.build_absolute_uri(url)
