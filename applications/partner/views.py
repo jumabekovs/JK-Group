@@ -12,7 +12,7 @@ class PartnerListView(ListAPIView):
     serializer_class = PartnerSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = PartnerFilter
-    pagination_class = PageNumberPagination
+    pagination_class = None
     search_fields = ['title', 'title_ru', 'title_ky', 'title_en']
 
     def list(self, request, *args, **kwargs):

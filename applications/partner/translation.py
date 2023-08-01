@@ -4,7 +4,7 @@ from .models import Partner, PartnerPage
 
 @register(Partner)
 class PartnerTranslationOptions(TranslationOptions):
-    fields = ('title', )
+    fields = ('title', 'description')
 
 
 @register(PartnerPage)
