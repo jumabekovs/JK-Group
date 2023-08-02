@@ -20,7 +20,7 @@ class Post(models.Model):
     image = models.ImageField(verbose_name='картинка поста', upload_to='post_images', blank=True, null=True, max_length=999)
 
     def __str__(self):
-        return f"{self.category} - {self.title}"
+        return f"{self.category}"
 
     class Meta:
         verbose_name = "Новости"

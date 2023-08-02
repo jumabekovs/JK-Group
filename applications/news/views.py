@@ -13,7 +13,7 @@ class PostListView(ListAPIView):
     serializer_class = PostListSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = PostFilter
-    pagination_class = PageNumberPagination
+    pagination_class = None
     search_fields = ['title', 'title_ru', 'title_ky', 'title_en']
 
 
