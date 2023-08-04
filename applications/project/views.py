@@ -9,7 +9,7 @@ from rest_framework.pagination import PageNumberPagination
 
 class ProjectListView(ListAPIView):
     queryset = Project.objects.all()
-    serializer_class = ProjectListSerializer
+    serializer_class = ProjectListSerializer(queryset, many=True)
     filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = ProjectFilter
     pagination_class = PageNumberPagination

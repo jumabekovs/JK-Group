@@ -26,7 +26,8 @@ class ProjectListSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['extra_fields'] = ProjectImageSerializer(instance.extrafields.all(), many=True).data
-        representation['line'] = str(instance.line)
+        representation['lines'] = str(instance.line)
+        representation['PROJECTS'] = str("PROJECTS")
         return representation
 
 
@@ -38,6 +39,6 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['extra_fields'] = Project(instance.extrafields.all(), many=True).data
-        representation['line'] = str(instance.line)
+        representation['lines'] = str(instance.line)
         return representation
 

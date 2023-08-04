@@ -9,7 +9,7 @@ from .filters import PartnerFilter
 
 class PartnerListView(ListAPIView):
     queryset = Partner.objects.all()
-    serializer_class = PartnerSerializer
+    serializer_class = PartnerSerializer(queryset, many=True)
     filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = PartnerFilter
     pagination_class = None

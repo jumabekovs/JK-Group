@@ -18,7 +18,7 @@ class PartnerPage(models.Model):
 
 
 class Partner(models.Model):
-    company = models.ForeignKey(Company, related_name='partners', on_delete=models.CASCADE, verbose_name='компания')
+    company = models.ForeignKey(Company, related_name='partners_company', on_delete=models.CASCADE, verbose_name='компания')
     title = models.CharField(verbose_name="заголовок", max_length=556)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
                                      blank=True, null=True, max_length=999)

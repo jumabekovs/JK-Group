@@ -19,7 +19,7 @@ class Line(models.Model):
 
 
 class ExtraFields(models.Model):
-    line = models.ForeignKey(Line, related_name='extrafields', on_delete=models.CASCADE, verbose_name='направление')
+    line = models.ForeignKey(Line, related_name='line_extrafields', on_delete=models.CASCADE, verbose_name='направление')
     sub_title = models.CharField(verbose_name='подзаголовок', max_length=999, blank=True, null=True)
     description = models.TextField(verbose_name='описание', blank=True, null=True)
     picture = models.ImageField(verbose_name='первая фотография', upload_to='line_images',
