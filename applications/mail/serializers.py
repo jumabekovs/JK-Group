@@ -21,6 +21,6 @@ class MailSerializer(serializers.ModelSerializer):
                   message=f'{line}\nПользователь: {email}\nОставил сообщение:\t {question}\nИмя:\t{name}\nНомер '
                           f'телефона:\t{phone}',
                   from_email=settings.EMAIL_HOST_USER,
-                  recipient_list=["support@jkgroup.kg", "so.fly.azash@gmail.com"],
+                  recipient_list=["support@jkgroup.kg"],
                   fail_silently=False)
         return message
