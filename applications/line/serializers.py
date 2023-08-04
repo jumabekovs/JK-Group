@@ -4,20 +4,6 @@ from ..project.serializers import ProjectListSerializer
 from ..staff.serializers import TeamSerializer
 
 
-class LineListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Line
-        exclude = ('sub_title', 'sub_title_ru', 'sub_title_ky', 'sub_title_en')
-
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['company'] = str(instance.company)
-        representation['extra_fields'] = LineImageSerializer(instance.extrafields.all(), many=True).data + \
-                                         [instance.sub_title_ru, instance.sub_title_ky,instance.sub_title_en]
-        representation['team'] = TeamSerializer(instance.lines.all(), many=True).data
-        return representation
-
-
 class LineImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExtraFields
@@ -32,6 +18,19 @@ class LineImageSerializer(serializers.ModelSerializer):
         else:
             url = ""
         return url
+
+class LineListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Line
+        exclude = ('sub_title', 'sub_title_ru', 'sub_title_ky', 'sub_title_en')
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['company'] = str(instance.company)
+        representation['extra_fields'] = LineImageSerializer(instance.line_extrafields.all(), many=True).data + \
+                                         [instance.sub_title_ru, instance.sub_title_ky,instance.sub_title_en]
+        representation['team'] = TeamSerializer(instance.lines.all(), many=True).data
+        return representation
 
 
 class LineDetailSerializer(serializers.ModelSerializer):

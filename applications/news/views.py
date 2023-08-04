@@ -10,7 +10,7 @@ from .filters import PostFilter
 
 class PostListView(ListAPIView):
     queryset = Post.objects.all()
-    serializer_class = PostListSerializer(queryset, many=True)
+    serializer_class = PostListSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter)
     filterset_class = PostFilter
     pagination_class = None
