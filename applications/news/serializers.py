@@ -10,7 +10,7 @@ class PostListSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['category'] = str(instance.category)
-        representation['NEWS'] = "NEWS"
+        representation['REFERS'] = "NEWS"
         return representation
 
 
