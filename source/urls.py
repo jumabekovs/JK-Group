@@ -53,6 +53,7 @@ urlpatterns += i18n_patterns(
     path('vacancies/', include('applications.vacancy.urls')),
     path('about/', include('applications.about_us.urls')),
     path('contacts/', include('applications.mail.urls')),
+    path('missions/', include('applications.mission.urls')),
 )
 
 

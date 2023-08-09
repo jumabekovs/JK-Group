@@ -3,15 +3,13 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .models import Partner, PartnerPage
 from .serializers import PartnerPageSerializer, PartnerSerializer
 from django_filters import rest_framework as filters
-from rest_framework.pagination import PageNumberPagination
-from .filters import PartnerFilter
+
 
 
 class PartnerListView(ListAPIView):
     queryset = Partner.objects.all()
     serializer_class = PartnerSerializer
     filter_backends = (filters.DjangoFilterBackend, SearchFilter)
-    filterset_class = PartnerFilter
     pagination_class = None
     search_fields = ['title', 'title_ru', 'title_ky', 'title_en']
 

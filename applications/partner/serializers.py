@@ -9,7 +9,6 @@ class PartnerSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['company'] = str(instance.company)
         representation['REFERS'] = str("PARTNERS")
         return representation
 

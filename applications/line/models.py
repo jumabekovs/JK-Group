@@ -3,7 +3,6 @@ from applications.company.models import Company
 
 
 class Line(models.Model):
-    company = models.ForeignKey(Company, related_name='lines', on_delete=models.CASCADE, verbose_name='компания')
     title = models.CharField(verbose_name='название', max_length=556)
     sub_title = models.CharField(max_length=999)
     description = models.TextField(verbose_name='описание')

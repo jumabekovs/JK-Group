@@ -7,7 +7,7 @@ from .models import Vacancy, CV
 
 class VacancyAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Vacancy
-    list_display = ('company', 'title',)
+    list_display = ('title',)
     summernote_fields = ('description',)
 
 

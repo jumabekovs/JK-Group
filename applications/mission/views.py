@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView
+from .models import Mission
+from .serializers import MissionSerializer
 
-# Create your views here.
+
+class MissionListView(ListAPIView):
+    queryset = Mission.objects.all()
+    serializer_class = MissionSerializer

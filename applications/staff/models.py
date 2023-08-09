@@ -18,8 +18,6 @@ class TeamPage(models.Model):
 
 
 class Team(models.Model):
-    company = models.ForeignKey(Company, related_name='teams', on_delete=models.CASCADE, verbose_name='компания',
-                             blank=True, null=True)
     line = models.ForeignKey(Line, related_name='lines', on_delete=models.CASCADE, verbose_name='напрвление',
                              blank=True, null=True)
     department = models.CharField(verbose_name="отдел", max_length=255, blank=True, null=True)
@@ -30,7 +28,7 @@ class Team(models.Model):
     experience = models.TextField(verbose_name='опыт работы')
 
     def __str__(self):
-        return f"{self.company} - {self.department} - {self.name}"
+        return f"{self.department} - {self.name}"
 
     class Meta:
         verbose_name = 'сотрудник'

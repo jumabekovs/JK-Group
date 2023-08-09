@@ -4,7 +4,6 @@ from applications.company.models import Company
 
 
 class Mission(models.Model):
-    company = models.ForeignKey(Company, verbose_name='компания', related_name='missions', on_delete=models.CASCADE)
     title = models.CharField(verbose_name="заголовок", max_length=556)
     sub_title = models.CharField(verbose_name="подзаголовок", max_length=996)
     description = models.TextField(verbose_name='описание')
@@ -12,7 +11,7 @@ class Mission(models.Model):
                                      blank=True, null=True, max_length=999)
 
     def __str__(self):
-        return f"{self.company} - {self.title}"
+        return f"{self.title}"
 
     class Meta:
         verbose_name = "миссия"

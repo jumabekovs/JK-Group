@@ -1,8 +1,14 @@
 from django.core.mail import send_mail
 from rest_framework import serializers
 
-from applications.mail.models import Mail
+from applications.mail.models import Mail, Tab
 from source import settings
+
+
+class TabSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tab
+        fields = "__all__"
 
 
 class MailSerializer(serializers.ModelSerializer):

@@ -16,7 +16,7 @@ class ExtraFieldsAdmin(SummernoteModelAdminMixin, admin.TabularInline):
 class MissionAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = Mission
     inlines = [ExtraFieldsAdmin]
-    list_display = ['company', 'title', 'sub_title']
+    list_display = ['title', 'sub_title']
     summernote_fields = ('description', )
 
 

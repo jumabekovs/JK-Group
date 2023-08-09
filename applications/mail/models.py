@@ -20,3 +20,15 @@ class Mail(models.Model):
     class Meta:
         verbose_name = 'сообщение'
         verbose_name_plural = 'сообщения'
+
+
+class Tab(models.Model):
+    title = models.CharField(verbose_name=_('Подзаголовок'), max_length=255)
+    text = models.TextField(verbose_name=_('Текст'))
+
+    def __str__(self):
+        return f"{self.title} - {self.text}"
+
+    class Meta:
+        verbose_name = 'обратная связь'
+        verbose_name_plural = 'обратная связь'

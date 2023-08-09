@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import CreateMailView
+from .views import CreateMailView, TabView
 
 urlpatterns = [
-    path("", CreateMailView.as_view()),
+    path("send-mail/", CreateMailView.as_view()),
+    path("", TabView.as_view()),
 ]
