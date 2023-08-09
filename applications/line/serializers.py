@@ -19,6 +19,7 @@ class LineImageSerializer(serializers.ModelSerializer):
             url = ""
         return url
 
+
 class LineListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Line
@@ -26,7 +27,6 @@ class LineListSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['company'] = str(instance.company)
         representation['extra_fields'] = LineImageSerializer(instance.line_extrafields.all(), many=True).data + \
                                          [instance.sub_title_ru, instance.sub_title_ky,instance.sub_title_en]
         representation['team'] = TeamSerializer(instance.lines.all(), many=True).data
@@ -40,7 +40,6 @@ class LineDetailSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['extra_fields'] = LineImageSerializer(instance.extrafields.all(), many=True).data
-        representation['company'] = str(instance.company)
+        representation['extra_fields'] = LineImageSerializer(instance.line_extrafields.all(), many=True).data
         representation['projects'] = ProjectListSerializer(instance.projects.all(), many=True).data
         return representation

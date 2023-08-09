@@ -10,15 +10,6 @@ class CompanyListSerializer(serializers.ModelSerializer):
         model = Company
         fields = "__all__"
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['group'] = str(instance.group)
-        representation['images'] = CompanyImageSerializer(instance.company_images.all(), many=True).data
-        representation['mission'] = MissionSerializer(instance.missions.all(), many=True).data
-        representation['vacancies'] = VacancyListSerializer(instance.vacancies.all(), many=True).data
-        representation['images'] = CompanyImageSerializer(instance.company_images.all(), many=True).data
-        return representation
-
 
 class CompanyImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,10 +32,3 @@ class CompanyDetailSerializer(serializers.ModelSerializer):
         model = Company
         fields = "__all__"
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['images'] = CompanyImageSerializer(instance.company_images.all(), many=True).data
-        representation['mission'] = MissionSerializer(instance.missions.all(), many=True).data
-        representation['partners'] = PartnerSerializer(instance.partners.all(), many=True).data
-        representation['vacancies'] = VacancyListSerializer(instance.vacancies.all(), many=True).data
-        return representation
