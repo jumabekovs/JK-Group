@@ -30,6 +30,7 @@ class LineListSerializer(serializers.ModelSerializer):
         representation['extra_fields'] = LineImageSerializer(instance.line_extrafields.all(), many=True).data + \
                                          [instance.sub_title_ru, instance.sub_title_ky,instance.sub_title_en]
         representation['team'] = TeamSerializer(instance.lines.all(), many=True).data
+        representation['projects'] = ProjectListSerializer(instance.projects.all(), many=True).data
         return representation
 
 
