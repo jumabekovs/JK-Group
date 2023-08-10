@@ -26,7 +26,6 @@ class HistoryListSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['extra'] = HistoryImageSerializer(instance.extrafields.all(), many=True).data
-        representation['company'] = str(instance.company)
         return representation
 
 
@@ -38,5 +37,4 @@ class HistoryDetailSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['extra'] = HistoryImageSerializer(instance.extrafields.all(), many=True).data
-        representation['company'] = str(instance.company)
         return representation

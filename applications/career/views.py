@@ -6,6 +6,7 @@ from .serializers import CareerListSerializer, CareerDetailSerializer
 class CareerListView(ListAPIView):
     queryset = Career.objects.all()
     serializer_class = CareerListSerializer
+    pagination_class = None
 
 
 class CareerDetailView(RetrieveAPIView):

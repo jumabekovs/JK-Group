@@ -4,11 +4,11 @@ from applications.company.models import Company
 
 
 class History(models.Model):
-    company = models.ForeignKey(Company, verbose_name='компания', related_name='history', on_delete=models.DO_NOTHING,
-                                null=True, blank=True)
     title = models.CharField(verbose_name="заголовок", max_length=556)
+    title_other = models.CharField(verbose_name="заголовок", max_length=556, blank=True, null=True)
     sub_title = models.CharField(verbose_name="подзаголовок", max_length=996, blank=True, null=True)
     description = models.TextField(verbose_name='описание')
+    description_other = models.TextField(verbose_name='описание', null=True, blank=True)
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='history_images',
                                      blank=True, null=True, max_length=999)
 
@@ -31,4 +31,3 @@ class ExtraFields(models.Model):
     class Meta:
         verbose_name = 'Экстра картинки'
         verbose_name_plural = 'Экстра картинки'
-

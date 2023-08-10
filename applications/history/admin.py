@@ -13,7 +13,7 @@ class ExtraFieldsAdmin(SummernoteModelAdminMixin, admin.TabularInline):
 class HistoryAdmin(SummernoteModelAdmin, TranslationAdmin):
     model = History
     inlines = [ExtraFieldsAdmin]
-    list_display = ['company', 'title', 'sub_title']
+    list_display = ['title', 'sub_title']
     summernote_fields = ('description',)
 
 
