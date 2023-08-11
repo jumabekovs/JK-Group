@@ -37,8 +37,8 @@ class CVSerializer(serializers.ModelSerializer):
         vacancy = validated_data.get('vacancy')
         cv = validated_data.get('cv')
         send_mail('Новое сообщение',
-                  message=f'Отправили резюме:\t https://res.cloudinary.com/dn17ltczr/image/upload/v1/{message}\t '
-                          f'на вакансию\t{vacancy}',
+                  message=f'На вакансию\t{vacancy}\n'
+                          f'Отправили резюме:\t https://res.cloudinary.com/dn17ltczr/image/upload/v1/{message}\t ',
                   from_email=settings.EMAIL_HOST_USER,
                   recipient_list=["support@jkgroup.kg", ],
                   fail_silently=False)

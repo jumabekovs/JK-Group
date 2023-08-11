@@ -5,7 +5,7 @@ from django.db import models
 class Career(models.Model):
     main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
                                      blank=True, null=True)
-    main_video = CloudinaryField(resource_type="video", verbose_name='видео', null=True, blank=True)
+    main_video = CloudinaryField(resource_type="video", verbose_name='видео 2000х700px', null=True, blank=True)
     title = models.CharField(verbose_name="заголовок", max_length=556)
     description = models.TextField(verbose_name='описание')
 
@@ -19,7 +19,7 @@ class Career(models.Model):
 
 class CareerImages(models.Model):
     career = models.ForeignKey(Career, related_name='images', on_delete=models.CASCADE, verbose_name='карьера')
-    picture = models.ImageField(verbose_name='фотография', upload_to='career_images',
+    picture = models.ImageField(verbose_name='фотография 350х420px', upload_to='career_images',
                                 blank=True, null=True)
 
     class Meta:

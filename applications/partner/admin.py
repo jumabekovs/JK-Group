@@ -5,16 +5,14 @@ from modeltranslation.admin import TranslationAdmin
 from .models import PartnerPage, Partner
 
 
-class PartnerAdmin(SummernoteModelAdmin, TranslationAdmin):
+class PartnerAdmin(TranslationAdmin):
     model = Partner
     list_display = ['title', ]
-    summernote_fields = ('description',)
 
 
-class PartnerPageAdmin(SummernoteModelAdmin, TranslationAdmin):
+class PartnerPageAdmin(TranslationAdmin):
     model = PartnerPage
     list_display = ['sub_title',]
-    summernote_fields = ('description',)
 
 
 admin.site.register(Partner, PartnerAdmin)

@@ -9,4 +9,4 @@ class PartnerTranslationOptions(TranslationOptions):
 
 @register(PartnerPage)
 class PartnerPageTranslationOptions(TranslationOptions):
-    fields = ('sub_title', 'description')
+    fields = ('sub_title', 'description', )

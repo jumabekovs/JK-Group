@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
 from modeltranslation.admin import TranslationAdmin
 
 from .models import Post, PostCategory
@@ -10,10 +9,9 @@ class PostCategoryAdmin(TranslationAdmin):
     list_display = ['name', ]
 
 
-class PostAdmin(SummernoteModelAdmin, TranslationAdmin):
+class PostAdmin(TranslationAdmin):
     model = Post
-    list_display = ['title', 'content']
-    summernote_fields = ('content',)
+    list_display = ['title', ]
 
 
 admin.site.register(Post, PostAdmin)

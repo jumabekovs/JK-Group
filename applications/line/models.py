@@ -6,7 +6,7 @@ class Line(models.Model):
     title = models.CharField(verbose_name='название', max_length=556)
     sub_title = models.CharField(max_length=999)
     description = models.TextField(verbose_name='описание')
-    main_picture = models.ImageField(verbose_name='главная фотография', upload_to='line_images',
+    main_picture = models.ImageField(verbose_name='главная фотография 1024x800px', upload_to='line_images',
                                      blank=True, null=True, max_length=999)
 
     def __str__(self):
@@ -21,9 +21,9 @@ class ExtraFields(models.Model):
     line = models.ForeignKey(Line, related_name='line_extrafields', on_delete=models.CASCADE, verbose_name='направление')
     sub_title = models.CharField(verbose_name='подзаголовок', max_length=999, blank=True, null=True)
     description = models.TextField(verbose_name='описание', blank=True, null=True)
-    picture = models.ImageField(verbose_name='первая фотография', upload_to='line_images',
+    picture = models.ImageField(verbose_name='фотография 1024x800px', upload_to='line_images',
                                 blank=True, null=True, max_length=999)
-    second_picture = models.ImageField(verbose_name='вторая фотография', upload_to='line_images',
+    second_picture = models.ImageField(verbose_name='вторая фотография 1024x800px', upload_to='line_images',
                                        blank=True, null=True, max_length=999)
 
     def __str__(self):

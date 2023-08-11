@@ -1,14 +1,12 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
 from modeltranslation.admin import TranslationAdmin
 
 from .models import Vacancy, CV
 
 
-class VacancyAdmin(SummernoteModelAdmin, TranslationAdmin):
+class VacancyAdmin(TranslationAdmin):
     model = Vacancy
     list_display = ('title',)
-    summernote_fields = ('description',)
 
 
 admin.site.register(CV)

@@ -1,7 +1,5 @@
 from django.db import models
 
-from applications.company.models import Company
-
 
 class Vacancy(models.Model):
     title = models.CharField(verbose_name="заголовок", max_length=556)
