@@ -5,7 +5,7 @@ from modeltranslation.admin import TranslationAdmin
 
 class ExtraFieldsAdmin(admin.TabularInline):
     model = ExtraFields
-    max_num = 6
+    max_num = 3
     extra = 1
 
 

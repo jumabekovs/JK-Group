@@ -5,7 +5,7 @@ from modeltranslation.admin import TranslationAdmin
 
 class CareerImagesAdmin(admin.TabularInline):
     model = CareerImages
-    max_num = 6
+    max_num = 3
     extra = 1
 
 
