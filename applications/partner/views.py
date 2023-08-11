@@ -4,8 +4,6 @@ from .models import Partner, PartnerPage
 from .serializers import PartnerPageSerializer, PartnerSerializer
 from django_filters import rest_framework as filters
 
-
-
 class PartnerListView(ListAPIView):
     queryset = Partner.objects.all()
     serializer_class = PartnerSerializer
