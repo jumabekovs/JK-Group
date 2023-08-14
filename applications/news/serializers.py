@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Post
+from .models import Post, PostPage
+
+
+class PostPageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PostPage
+        fields = "__all__"
 
 
 class PostListSerializer(serializers.ModelSerializer):
