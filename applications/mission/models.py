@@ -29,6 +29,6 @@ class ExtraFields(models.Model):
         return f"{self.sub_title}"
 
     class Meta:
-        verbose_name = 'экстра поле'
-        verbose_name_plural = 'экстра поля'
+        verbose_name = 'подробная информация'
+        verbose_name_plural = 'подробная информация'
 

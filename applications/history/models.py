@@ -29,5 +29,5 @@ class ExtraFields(models.Model):
         return f"{self.history}"
 
     class Meta:
-        verbose_name = 'Экстра картинки'
-        verbose_name_plural = 'Экстра картинки'
+        verbose_name = 'подробная информация'
+        verbose_name_plural = 'подробная информация'
