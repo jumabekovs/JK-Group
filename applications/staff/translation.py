@@ -4,4 +4,4 @@ from .models import Team
 
 @register(Team)
 class TeamTranslationOptions(TranslationOptions):
-    fields = ('department', 'name', 'experience', 'status')
+    fields = ('name', 'experience', 'status')

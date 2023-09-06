@@ -8,6 +8,9 @@ class Line(models.Model):
     description = models.TextField(verbose_name='описание')
     main_picture = models.ImageField(verbose_name='главная фотография 1024x800px', upload_to='line_images',
                                      blank=True, null=True, max_length=999)
+    corporate_structure_picture = models.ImageField(verbose_name='фотография структуры 2000x840px',
+                                                    upload_to='line_images',
+                                                    blank=True, null=True)
 
     def __str__(self):
         return f"{self.title}"

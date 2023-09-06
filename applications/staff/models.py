@@ -17,10 +17,25 @@ class TeamPage(models.Model):
         verbose_name_plural = "страница команды"
 
 
-class Team(models.Model):
-    line = models.ForeignKey(Line, related_name='lines', on_delete=models.CASCADE, verbose_name='напрвление',
+class Department(models.Model):
+    line = models.ForeignKey(Line, related_name='department_lines', on_delete=models.CASCADE, verbose_name='напрвление',
                              blank=True, null=True)
-    department = models.CharField(verbose_name="отдел", max_length=255, blank=True, null=True)
+    name = models.CharField(verbose_name="отдел", max_length=255, blank=True, null=True)
+    description = models.CharField(max_length=255, verbose_name="описание", blank=True, null=True)
+
+    def __str__(self):
+        return str(self.name)
+
+    class Meta:
+        verbose_name = "отдел"
+        verbose_name_plural = "отделы"
+
+
+class Team(models.Model):
+    line = models.ForeignKey(Line, related_name='team_lines', on_delete=models.CASCADE, verbose_name='напрвление',
+                             blank=True, null=True)
+    department = models.ForeignKey(Department, verbose_name="отдел", related_name="team_department",
+                                   on_delete=models.SET_NULL, null=True, blank=True)
     main_picture = models.ImageField(verbose_name='фотография 390x500px', upload_to='line_images',
                                      blank=True, null=True, max_length=500)
     name = models.CharField(verbose_name="ФИО", max_length=255)
@@ -33,3 +48,4 @@ class Team(models.Model):
     class Meta:
         verbose_name = 'сотрудник'
         verbose_name_plural = 'сотрудники'
+

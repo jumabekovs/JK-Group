@@ -3,7 +3,7 @@ from .models import Team, TeamPage
 from .serializers import TeamSerializer, TeamPageSerializer
 from django_filters import rest_framework as filters
 from rest_framework.pagination import PageNumberPagination
-from .filters import TeamFilter
+from .filters import TeamFilter, DepartmentFilter
 
 
 class TeamListView(ListAPIView):

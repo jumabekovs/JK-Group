@@ -3,6 +3,13 @@ from .models import Team
 
 
 class TeamFilter(filters.FilterSet):
+
     class Meta:
         model = Team
-        fields = ('department', )
+        fields = ('line', 'department', )
+
+
+class DepartmentFilter(filters.FilterSet):
+    class Meta:
+        model = Team
+        fields = ('line',)
